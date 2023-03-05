@@ -1,0 +1,22 @@
+# Set the sentences to look for
+sentences = ['Lorem ipsum', 'dolor sit amet', 'consectetur adipiscing elit']
+
+# Read in the text file
+with open('input.txt', 'r') as f:
+    text = f.readlines()
+
+# Create a new string to hold the modified text
+new_text = ''
+
+# Loop over each line in the file
+for line in text:
+    # Check if the line contains any of the sentences using the `any()` function
+    if any(sentence in line for sentence in sentences):
+        # If the line contains any of the sentences, skip it and move on to the next line
+        continue
+    # If the line does not contain any of the sentences, append it to the new string
+    new_text += line
+
+# Write the modified text to a new file
+with open('output.txt', 'w') as f:
+    f.write(new_text)
